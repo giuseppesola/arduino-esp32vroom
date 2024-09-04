@@ -3,9 +3,9 @@
 #include <WiFi.h>
 #include <WiFiClient.h>
 
-#define TRIG_PIN 5
-#define ECHO_PIN 18
-#define SERVO_PIN 17
+#define TRIG_PIN 26
+#define ECHO_PIN 25
+#define SERVO_PIN 14
 #define MAX_DISTANCE 200 // Distanza massima in cm
 
 // Configurazione Access Point

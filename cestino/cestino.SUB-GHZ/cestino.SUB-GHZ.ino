@@ -2,9 +2,9 @@
 #include <ESP32Servo.h>
 #include <NewPing.h>
 
-#define TRIG_PIN 5
-#define ECHO_PIN 18
-#define SERVO_PIN 17
+#define TRIG_PIN 26
+#define ECHO_PIN 25
+#define SERVO_PIN 14
 #define MAX_DISTANCE 200 // Distanza massima in cm
 
 #define OPEN_RF_CODE 0x005DD530 // Codice RF per aprire
@@ -22,7 +22,7 @@ void setup() {
   Serial.begin(115200);
 
   // Configura il pin di ricezione RF
-  mySwitch.enableReceive(23); // Pin D23 (o qualsiasi pin supportato dal modulo RF)
+  mySwitch.enableReceive(33); // Pin D23 (o qualsiasi pin supportato dal modulo RF)
 
   // Configura il servo
   servo.attach(SERVO_PIN);
@@ -80,5 +80,5 @@ void loop() {
   }
 
   // Attesa breve prima di continuare il loop
-  delay(500);  // Tempo di attesa per evitare continui cambiamenti
+  delay(10);  // Tempo di attesa per evitare continui cambiamenti
 }

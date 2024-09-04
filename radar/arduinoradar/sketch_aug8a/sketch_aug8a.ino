@@ -1,8 +1,8 @@
-#include <ESP32Servo.h>
+#include <Servo.h>
 
-// Definisce i pin del sensore ad ultrasuoni per ESP32
-const int trigPin = 32;  // Pin del trigger
-const int echoPin = 33;  // Pin dell'eco
+// Definisce i pin del sensore ad ultrasuoni
+const int trigPin = 9;  // Pin del trigger
+const int echoPin = 10; // Pin dell'eco
 
 // Variabili per la durata e la distanza
 long duration;
@@ -14,12 +14,12 @@ Servo myServo;
 void setup() {
   pinMode(trigPin, OUTPUT); // Imposta il pin trig come Uscita
   pinMode(echoPin, INPUT);  // Imposta il pin echo come Ingresso
-  Serial.begin(115200);     // Inizia la comunicazione seriale con baud rate a 115200
-  myServo.attach(14);       // Definisce il pin a cui è collegato il motore servo (pin 14 su ESP32)
+  Serial.begin(9600);      // Inizia la comunicazione seriale
+  myServo.attach(11);      // Definisce il pin a cui è collegato il motore servo (pin 11)
 }
 
 void loop() {
-  // Ruota il motore servo da 0 a 180 gradi
+  // Ruota il motore servo da 15 a 165 gradi
   for (int i = 0; i <= 180; i +=1) {  
     myServo.write(i);
     delay(25); // Tempo di attesa per permettere al servo di raggiungere la posizione
@@ -32,7 +32,7 @@ void loop() {
     Serial.print(".");     // Separatore per il termine della misurazione
   }
   
-  // Ripete la rotazione del servo da 180 a 0 gradi
+  // Ripete la rotazione del servo da 165 a 15 gradi
   for (int i = 180; i >= 0; i -=1) {  
     myServo.write(i);
     delay(25); // Tempo di attesa per permettere al servo di raggiungere la posizione
